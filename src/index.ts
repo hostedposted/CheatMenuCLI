@@ -120,7 +120,10 @@ export const config = {
     "version": "1.0.0",
     "main": "dist/bundle.js",
     "license": "MIT",
-    "type": "module"
+    "type": "module",
+    "scripts": {
+        "build": "chenu-cli build"
+    }
 }\n`)
         await fs.writeFile(path.join(path.resolve(outputDirectory), "src", "index.ts"), `import { create } from "chenu"
 \ncreate()\n`)

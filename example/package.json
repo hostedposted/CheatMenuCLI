@@ -3,5 +3,14 @@
     "version": "1.0.0",
     "main": "index.js",
     "license": "MIT",
-    "type": "module"
+    "type": "module",
+    "scripts": {
+        "build": "chenu-cli build"
+    },
+    "dependencies": {
+        "chenu": "^1.0.0"
+    },
+    "devDependencies": {
+        "chenu-cli": "^1.0.4"
+    }
 }
