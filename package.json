@@ -1,13 +1,19 @@
 {
-    "name": "cheat-menu-cli",
-    "version": "1.0.0",
+    "name": "chenu-cli",
+    "version": "1.0.1",
     "description": "Easily create cheat menu's for games!",
     "main": "lib/index.js",
-    "repository": "https://github.com/hostedposted/CheatMenuCLI",
+    "repository": "https://github.com/hostedposted/ChenuCLI",
     "author": "hostedposted <hostedpostedsite@gmail.com>",
     "license": "MIT",
     "type": "module",
     "bin": "lib/index.js",
+    "keywords": [
+        "cheat menu",
+        "hack",
+        "cheat",
+        "menu"
+    ],
     "readme": "README.md",
     "dependencies": {
         "@babel/core": "^7.19.3",
