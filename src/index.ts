@@ -87,7 +87,7 @@ async function build (argv: ArgumentsCamelCase, builtHandler: () => void = () =>
 }
 
 void yargs(hideBin(process.argv))
-    .scriptName("cheat-menu-cli")
+    .scriptName("chenu-cli")
     .usage("$0 <cmd> [args]")
     .command("init", "Create a new cheat menu.", async (argv) => {
         console.log(gradient.pastel.multiline(figlet.textSync("Cheat menu creation!")))
