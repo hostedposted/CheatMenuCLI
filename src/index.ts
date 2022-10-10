@@ -27,12 +27,13 @@ const io = new Server({
  * Install node modules synchronously and save to dependencies in package.json
  * @param {string|string[]} packages Node module or modules to install
  * @param {string} packageManager Package manager to use for installation.
+ * @param {boolean} developer If the package should be installed as a dev dependency.
  * @returns {void}
  */
-function installSyncSave (packages: string | string[], packageManager: string = "npm"): void {
+function installSyncSave (packages: string | string[], packageManager: string = "npm", developer: boolean = false): void {
     const packageList = Array.isArray(packages) ? packages : [packages]
     const installCmd = packageManager === "yarn" ? "add" : "install"
-    const installProcess = spawn.sync(packageManager, [installCmd].concat(packageList),
+    const installProcess = spawn.sync(packageManager, [installCmd].concat(...(developer ? ["-D"] : []), ...packageList),
         { stdio: "inherit" })
     const error = installProcess.error
 
@@ -109,7 +110,7 @@ void yargs(hideBin(process.argv))
             }
         ])
         await fs.mkdir(path.join(outputDirectory, "src", "hacks"), { recursive: true })
-        await fs.writeFile(path.join(path.resolve(outputDirectory), "cheat-menu-config.js"), `/** @type {import("cheat-menu-cli").Config} */
+        await fs.writeFile(path.join(path.resolve(outputDirectory), "cheat-menu-config.js"), `/** @type {import("chenu-cli").Config} */
 export const config = {
     title: ${JSON.stringify(cheatMenuTitle)},
     categories: []
@@ -121,9 +122,10 @@ export const config = {
     "license": "MIT",
     "type": "module"
 }\n`)
-        await fs.writeFile(path.join(path.resolve(outputDirectory), "src", "index.ts"), `import { create } from "cheat-menu"
+        await fs.writeFile(path.join(path.resolve(outputDirectory), "src", "index.ts"), `import { create } from "chenu"
 \ncreate()\n`)
-        installSyncSave(["cheat-menu", "cheat-menu-cli"], packageManager)
+        installSyncSave("chenu", packageManager)
+        installSyncSave("chenu-cli", packageManager, true)
         console.log(gradient.pastel("The cheat menu has initialized successfully!"))
     })
     .command("build", "Build your cheat menu.", (yargs) => {

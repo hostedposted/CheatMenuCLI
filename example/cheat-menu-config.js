@@ -1,4 +1,4 @@
-/** @type {import("cheat-menu-cli").Config} */
+/** @type {import("chenu-cli").Config} */
 export const config = {
     title: "Example Cheat Menu",
     categories: [

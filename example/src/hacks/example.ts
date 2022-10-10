@@ -1,4 +1,4 @@
-import { success, withCategory } from "cheat-menu"
+import { success, withCategory } from "chenu"
 
 withCategory("Example Category", ({ hack, toggle }) => {
     // hack("Example Hack", "This is an example hack", () => {

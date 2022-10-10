@@ -1,3 +1,3 @@
-import { create } from "cheat-menu"
+import { create } from "chenu"
 
 create()
