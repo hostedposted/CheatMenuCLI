@@ -37,7 +37,7 @@ function installSyncSave (packages: string | string[], packageManager: string = 
         { stdio: "inherit" })
     const error = installProcess.error
 
-    if (error !== undefined) {
+    if (error != null) {
         const pluralS = packageList.length > 1 ? "s" : ""
 
         console.log(gradient.morning(`Could not execute ${packageManager}. Please install the following package${pluralS} with a package manager of your choice: ${packageList.join(", ")}.`))
